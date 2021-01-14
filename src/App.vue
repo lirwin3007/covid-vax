@@ -8,7 +8,7 @@
     <div style="text-align: left;">
       <div id="credit">
         Created by <b><a href="mailto:coding@louisirwin.co.uk">Louis Irwin</a></b><br>
-        Code available open source on <a href="https://github.com/lirwin3007">GitHub</a><br>
+        Code available open source on <a href="https://github.com/lirwin3007/covid-vax">GitHub</a><br>
         First dose data is sourced from the <a href="https://coronavirus.data.gov.uk/details/developers-guide">government coronavirus data API</a>
       </div>
 

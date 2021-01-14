@@ -10,6 +10,19 @@ export default {
   data() {
     return {
       options: {
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+              if (label) {
+                  label += ': ';
+              }
+              label += tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+              return label;
+            }
+          }
+        },
         maintainAspectRatio: false,
         scales: {
           xAxes: [{
@@ -27,6 +40,12 @@ export default {
             ticks: {
               min: 0,
               max: 70000000,
+              userCallback: function(value) {
+                value = value.toString();
+                value = value.split(/(?=(?:...)*$)/);
+                value = value.join(',');
+                return value;
+              }
             },
           }],
         },
@@ -79,7 +98,7 @@ export default {
         }
         result.push({
           t: new Date(currentDate),
-          y: prediction
+          y: parseInt(prediction)
         });
 
         currentDate.setDate(currentDate.getDate() + 1);
